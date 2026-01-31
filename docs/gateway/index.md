@@ -26,6 +26,26 @@ openclaw gateway --force
 pnpm gateway:watch
 ```
 
+## Verify the Gateway is running
+
+```bash
+openclaw status
+openclaw health
+```
+
+`openclaw status` should show the Gateway as reachable, and `openclaw health`
+should report `"ok": true` when everything is healthy.
+
+## Open the Control UI
+
+Default URL on the gateway host:
+
+- `http://127.0.0.1:18789/` (or `http://localhost:18789/`)
+
+If you set `gateway.controlUi.basePath`, append it to the URL.
+If the UI asks for auth, run `openclaw dashboard --no-open` to print a
+tokenized link. See [Control UI](/web/control-ui).
+
 - Config hot reload watches `~/.openclaw/openclaw.json` (or `OPENCLAW_CONFIG_PATH`).
   - Default mode: `gateway.reload.mode="hybrid"` (hot-apply safe changes, restart on critical).
   - Hot reload uses in-process restart via **SIGUSR1** when needed.
