@@ -20,6 +20,16 @@ OpenClaw pulls environment variables from multiple sources. The rule is **never 
 
 If the config file is missing entirely, step 4 is skipped; shell import still runs if enabled.
 
+## Using a `.env` file from another folder
+
+OpenClaw only loads `.env` from the current working directory or `~/.openclaw/.env`
+(`$OPENCLAW_STATE_DIR/.env`). If your keys are in a Desktop folder like
+`$HOME/Desktop/env/.env`, do one of these:
+
+- Copy or symlink it to `~/.openclaw/.env` (best for services).
+- Run the Gateway from that folder so it becomes the working directory.
+- Set `OPENCLAW_STATE_DIR="$HOME/Desktop/env"` when starting the Gateway.
+
 ## Config `env` block
 
 Two equivalent ways to set inline env vars (both are non-overriding):
